@@ -27,7 +27,7 @@ consisting of each paragraph and its summary:
 -Tokenize the data.<br>
 -Process into .bin and vocab files.
 
-## Demos
+## Examples
 - *[**Sum-base.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/Sum-base.ipynb)* shows a local test for our seq2seq model where we overfit a very tiny dataset. <br>
 - *[**Test-base.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/Test-base.ipynb)* shows how to use trained model to generate results. <br>
 - *[**ROUGE.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/ROUGE.ipynb)* shows how to compute ROUGE-1, ROUGE-2, ROUGE-L and ROUGE-BE. <br>
