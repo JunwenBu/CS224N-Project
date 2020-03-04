@@ -16,17 +16,18 @@ consisting of each paragraph and its summary:
 |Text|the paragraph (except the bold line) to generate the article to be summarized|
 
 ## Fit data to our models
-*[**ProcessRawData.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/ProcessRawData.ipynb)* shows how to clean up data for our seq2seq model.
-- Convert words to lowercase.
-- Expand language contractions.
-- Format words and remove unwanted characters.
-- Remove stop words.
+*[**ProcessRawData.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/ProcessRawData.ipynb)* shows how to clean up data for our seq2seq model.<br>
+-Convert words to lowercase.<br>
+-Expand language contractions.<br>
+-Format words and remove unwanted characters.<br>
+-Remove stop words.
+
 *[**DataProcessing-PointerGenerator.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/DataProcessing-PointerGenerator.ipynb)* shows how to prepare the data for the pointer-generator model.<br>
-- Prepare raw data and save to csv.
-- Tokenize the data.
-- Process into .bin and vocab files.
+-Prepare raw data and save to csv.<br>
+-Tokenize the data.<br>
+-Process into .bin and vocab files.
 
 ## Demos
--*[**Sum-base.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/Sum-base.ipynb)* shows a local test for our seq2seq model where we overfit a very tiny dataset. <br>
--*[**Test-base.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/Test-base.ipynb)* shows how to use trained model to generate results. <br>
--*[**ROUGE.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/ROUGE.ipynb)* shows how to compute ROUGE-1, ROUGE-2, ROUGE-L and ROUGE-BE. <br>
+- *[**Sum-base.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/Sum-base.ipynb)* shows a local test for our seq2seq model where we overfit a very tiny dataset. <br>
+- *[**Test-base.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/Test-base.ipynb)* shows how to use trained model to generate results. <br>
+- *[**ROUGE.ipynb**](https://github.com/JunwenBu/CS224N-Project/blob/master/ROUGE.ipynb)* shows how to compute ROUGE-1, ROUGE-2, ROUGE-L and ROUGE-BE. <br>
