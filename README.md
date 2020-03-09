@@ -1,7 +1,7 @@
 # CS224N-Project (Under Construction ...)
 ## Abstractive Summarization on WikiHow dataset.
 - **seq2seq** folder contains files related to Sequence-to-sequence (seq2seq) model.
-- **pointer-generator** folder contains files related to Pointer-Generator model. Currently, for this method, we largely reused the code from *[abisee's repository](https://github.com/becxer/pointer-generator/)*, which contains implementation for the ACL 2017 paper *[Get To The Point: Summarization with Pointer-Generator Networks](https://arxiv.org/abs/1704.04368)*. 
+- **pointer-generator** folder contains files related to Pointer-Generator model. Currently, for this method, we largely reused the code from *[becxer's repository](https://github.com/becxer/pointer-generator/)*, which contains implementation for the ACL 2017 paper *[Get To The Point: Summarization with Pointer-Generator Networks](https://arxiv.org/abs/1704.04368)*. 
 
 
 ## Dataset
