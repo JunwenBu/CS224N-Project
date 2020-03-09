@@ -14,14 +14,14 @@ from tensorboardX import SummaryWriter
 # Copy this part to test notebook
 #################### CONFIG #############
 # dataset range
-si, ei = 0, 10 #0, 25000
+si, ei = 0, 2000 #0, 25000
 # Subset the data for training
 start = 0 # 0
 end = start + 20000 # 20000
 
 # Set the Hyperparameters
 epochs = 100
-batch_size = 4 # 64
+batch_size = 16 # 64
 rnn_size = 256
 num_layers = 2
 learning_rate = 0.005
@@ -486,7 +486,7 @@ learning_rate_decay = 0.95
 min_learning_rate = 0.0005
 display_step = 20 # Check training loss after every 20 batches
 stop_early = 0 
-stop = 8 #3 # If the update loss does not decrease in 3 consecutive update checks, stop training
+stop = 10 #3 # If the update loss does not decrease in 3 consecutive update checks, stop training
 per_epoch = 3 # Make 3 update checks per epoch
 update_check = max(1, (len(sorted_texts_short)//batch_size//per_epoch)-1)
 
@@ -538,22 +538,22 @@ with tf.Session(graph=train_graph) as sess:
             end_time = time.time()
             batch_time = end_time - start_time
             step += 1
-            if batch_i % display_step == 0 and batch_i + 1> 0:
+            if batch_i % display_step == 0 and batch_i > 0:
                 print("step:"+str(step), 'batch_loss:'+ str(batch_loss))
                 print('Epoch {:>3}/{} Batch {:>4}/{} - Loss: {:>6.3f}, Seconds: {:>4.2f}'
                       .format(epoch_i,
                               epochs, 
-                              batch_i + 1, 
+                              batch_i, 
                               len(sorted_texts_short) // batch_size, 
                               batch_loss / display_step, 
                               batch_time*display_step))
-                writer.add_scalar('Train/batch_loss', batch_loss, step)
-                writer.add_scalar('Train/loss', batch_loss / display_step, step)
+                writer.add_scalar('Train_batchloss', batch_loss, step)
+                writer.add_scalar('Train_loss', batch_loss / display_step, step)
                 batch_loss = 0
                 #saver = tf.train.Saver() 
                 #saver.save(sess, checkpoint)
                 
-            if batch_i % update_check == 0 and batch_i + 1 > 0:
+            if batch_i % update_check == 0 and batch_i > 0:
                 print("Average loss for this update:", round(update_loss/update_check,3))
                 summary_update_loss.append(update_loss)
                 
