@@ -15,7 +15,7 @@
 # ==============================================================================
 
 """This file contains code to build and run the tensorflow graph for the sequence-to-sequence model"""
-
+import sys
 import os
 import time
 import numpy as np
@@ -180,6 +180,15 @@ class SummarizationModel(object):
       # Note that for decoder timesteps and examples corresponding to a [PAD] token, this is junk - ignore.
       final_dists = [vocab_dist + copy_dist for (vocab_dist,copy_dist) in zip(vocab_dists_extended, attn_dists_projected)]
 
+      # OOV part of vocab is max_art_oov long. Not all the sequences in a batch will have max_art_oov tokens.
+      # That will cause some entries to be 0 in the distribution, which will result in NaN when calulating log_dists
+      # Add a very small number to prevent that.
+      def add_epsilon(dist, epsilon=sys.float_info.epsilon):
+        epsilon_mask = tf.ones_like(dist) * epsilon
+        return dist + epsilon_mask
+
+      final_dists = [add_epsilon(dist) for dist in final_dists]
+      
       return final_dists
 
   def _add_emb_vis(self, embedding_var):
